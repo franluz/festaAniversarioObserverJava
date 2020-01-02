@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Porteiro extends Thread {
 	private List<ChegadaAniversarianteObserver> observers = new ArrayList<ChegadaAniversarianteObserver>();
-
+	private final int CHEGOU =1;
 	public void addChegadaAniversarianteObserver(ChegadaAniversarianteObserver observer) {
 		this.observers.add(observer);
 	}
@@ -17,7 +17,7 @@ public class Porteiro extends Thread {
 		Scanner scanner = new Scanner(System.in);
 		while (true) {
 			int valor = scanner.nextInt();
-			if (valor == 1) {
+			if (valor == CHEGOU) {
 				ChegadaAniversarianteEvent event = new ChegadaAniversarianteEvent(new Date());
 				
 				this.observers.forEach(item ->{
